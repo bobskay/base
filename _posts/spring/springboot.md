@@ -4,7 +4,7 @@ date: 2018-07-30 18:01:30
 categories: [code,springboot]
 tags: [springboot]
 typora-copy-images-to: ../images
-typora-root-url:  E:/blog
+typora-root-url:  /blog
 ---
 
 草稿
