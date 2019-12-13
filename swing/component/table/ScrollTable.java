@@ -1,21 +1,17 @@
 package wang.wangby.swing.component.table;
 
+import wang.wangby.swing.RowInfo;
 import wang.wangby.swing.component.MyScrollPane;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
 public class ScrollTable {
 
-    public static MyScrollPane newInstance(List title){
-        return newInstance(title,new ArrayList<>());
-    }
-
-    public static MyScrollPane newInstance(List title, List<List> data){
+    public static MyScrollPane newInstance(RowInfo row, List<List> data){
         Vector vData = new Vector();
         Vector vName = new Vector();
-        for(Object o :title){
+        for(Object o :row.getNames()){
             vName.add(o);
         }
         for(List list:data){
