@@ -6,3 +6,4 @@ https://note.youdao.com/ynoteshare1/index.html?id=69e916c6efda4d616876fe0c6bc6b5
 auto.offset.reset=earliest
 https://blog.csdn.net/exedllnet/article/details/50272345
 https://zhidao.baidu.com/question/32334688.html
+https://www.cnblogs.com/caoweixiong/p/11181386.html
