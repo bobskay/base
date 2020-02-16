@@ -1,0 +1,135 @@
+<form id="fm" name="fm">
+<table class="form">
+    <tr>
+        <td width="10%">message</td>
+        <td width="90%" colspan="2">
+            <input type="text" class="form-control" name="message"
+                   placeholder="请输入要查询的关键字，多个单词以逗号分隔"/>
+        </td>
+    </tr>
+    <tr>
+        <td>时间</td>
+        <td width="30%"><input name="timestamp" type="text" id="timestamp" class="form-control"
+                               value="2020-02-13 00:00:00 - 2020-02-13 12:00:00"/>
+        </td>
+        <td width="60%">
+            <input class="custom-control-input" type="radio" name="time"  value="11">
+            <label >30分钟</label>&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <input class="custom-control-input" type="radio" name="time"  value="11">
+            <label >1小时</label>&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <input class="custom-control-input" type="radio" name="time"  value="11">
+            <label >6小时</label>&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <input class="custom-control-input" type="radio" name="time"  value="11">
+            <label >12小时</label>&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <input class="custom-control-input" type="radio" name="time"  value="11">
+            <label >1天</label>&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <input class="custom-control-input" type="radio" name="time"  value="11">
+            <label >7天</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td>项目</td>
+        <td colspan="2">
+            <div class="select2-purple">
+                <select name="project" class="select2" multiple="multiple" data-placeholder="请选择" style="width: 100%;">
+                    <option>Alabama</option>
+                    <option>Alaska</option>
+                    <option>California</option>
+                    <option>Delaware</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Washington</option>
+                </select>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>显示条数</td>
+        <td colspan="2">
+            <input name="size" style="width:100px" maxlength="5" class="form-control" type="text"/>
+        </td>
+    </tr>
+    <tr>
+        <td>环境</td>
+        <td colspan="2">
+            <input class="custom-control-input" type="checkbox" name="evn" id="customCheckbox1" value="osption1">
+            <label for="customCheckbox1" class="custom-control-label">PRO</label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="custom-control-input" type="checkbox" name="evn"  id="customCheckbox2" >
+            <label for="customCheckbox2" class="custom-control-label">UAT</label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="custom-control-input" type="checkbox" name="evn"  id="customCheckbox3" >
+            <label for="customCheckbox3" class="custom-control-label">FAT</label>
+        </td>
+    </tr>
+
+    <tr>
+        <td>显示列</td>
+        <td colspan="2">
+            <input class="custom-control-input" type="checkbox" name="column" id="col1" value="1">
+            <label>id</label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="custom-control-input" type="checkbox" name="column" id="col2" value="2">
+            <label>class</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+</table>
+</form>
+
+<tabe>
+    <tr>
+        <td >
+            <button class="btn-success" onclick="doQuery()">查询</button>
+        </td>
+    </tr>
+</tabe>
+
+<link rel="stylesheet" href="/resources/plugins/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" href="/resources/plugins/select2/select2.min.css">
+<link rel="stylesheet" href="/resources/plugins/select2/select2-bootstrap4.min.css">
+
+
+
+<script src="/resources/plugins/daterangepicker/moment.js"></script>
+<script src="/resources/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="/resources/plugins/select2/select2.full.min.js"></script>
+<script>
+ $('#timestamp').daterangepicker({
+    showDropdowns: true, //年月份下拉框
+    autoUpdateInput:false, //关闭自动赋值，使初始值为空
+    timePicker:true,//显示时分时间选择
+    timePicker24Hour : true,//设置小时为24小时制
+    timePickerSeconds: true, //时间显示到秒
+    "opens": "center",  //打开位置
+    showWeekNumbers: true,
+    locale: { //汉化
+　       format: "YYYY-MM-DD HH:mm:ss", //设置显示格式
+            applyLabel: '确定', //确定按钮文本
+            cancelLabel: '取消', //取消按钮文本
+            daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+            monthNames: ['一月', '二月', '三月', '四月', '五月', '六月',
+                        '七月', '八月', '九月', '十月', '十一月', '十二月'],
+            firstDay: 1
+        }
+    });
+
+    //绑定应用按钮
+    $('#timestamp').on('apply.daterangepicker', function (ev, picker) {
+    //填充数据
+    $("#timestamp").val(picker.startDate.format('YYYY-MM-DD HH:mm:ss')+" - "+picker.startDate.format('YYYY-MM-DD HH:mm:ss'));
+});
+
+$('.select2').select2()
+
+$('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
+function doQuery(){
+    dialog.loading();
+    var dd=$("#fm").serialize();
+
+}
+</script>
